@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////
+// LOS ELEMENTOS SE ENCUENTRAN ORDENADOS ALFABETICAMENTE SIN DISTINCION DE CLASE ETIQUETA O ID //
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.aclara {
+    line-height: 0.5rem;
+    font-size: smaller;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#barra {
+    position: sticky !important;
+    top: 0% !important;
+    z-index: 10 !important;
+}
+
+#barra ul {
+    margin-right: 10%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#boton {
+    background-color: #8acf30;
+    color: white !important;
+    font-size: 1.1rem;
+}
+
+#carrousel {
+    z-index: 9;
+}
+
+#codo {
+    width: 30% !important;
+}
+
+.descuentos {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.descuentos > div {
+    flex: 1;
+    margin: 5px;
+    /*padding-bottom: calc(25% - 5px);*/
+    box-sizing: border-box;
+}
+footer {
+    margin-top: 1%;
+    background-color: #315664;
+    line-height: 2rem;
+}
+
+footer .nav-item {
+    display: flex;
+    align-items: center;
+    width: 14%;
+    margin-right: 0.1rem;
+}
+
+footer .nav-link {
+    font-size: small;
+    color: aliceblue !important;
+    line-height: 1rem;
+}
+
+footer .nav-link:hover {
+    color: gray !important;
+}
+    
+#logo_codo {
+    width: 30%;
+}
+
+.opaco-frente {
+    z-index: 9;
+    background-size: contain !important;
+    opacity: 1;
+    right: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.opaco {
+    background-size: contain !important;
+    background-color: black;
+    opacity: 0.3;
+    right: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 100% !important;
+}
+
+p > span {
+    border-bottom: 2px dotted !important;
+}
+
+.referencia{
+    color: white !important;
+    margin-right: 10%;
+    opacity: 1 !important;
+    text-align: end;
+    width: 40%;
+}
+
+.separador {
+    margin-right: 3% !important;
+}
+
+.separador a {
+    font-size: smaller !important;
+    line-height: 0.4rem;
+    font-weight: bold;
+    padding: 2%;
+}
+
+.texto {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.texto p {
+    font-size: 0.8rem;
+}
+
+.texto a{
+    line-height: 2rem;
+}
+
+#ticket {
+    color: green !important;
+}
+
+#ticket:hover {
+    color: rgb(214, 231, 30) !important;
+}
