@@ -32,24 +32,24 @@ body {
     font-size: 1.1rem;
 }
 
-#carrousel {
-    z-index: 9;
-}
-
 #codo {
     width: 30% !important;
 }
 
 .descuentos {
+    
     display: inline-flex;
     width: 100%;
+    border-radius: 0%;
     justify-content: center;
 }
 
 .descuentos > div {
+    color: black !important;
     flex: 1;
-    margin: 5px;
-    /*padding-bottom: calc(25% - 5px);*/
+    width: 175px;
+    height: 175px;
+    padding: 2%;
     box-sizing: border-box;
 }
 footer {
@@ -79,64 +79,7 @@ footer .nav-link:hover {
     width: 30%;
 }
 
-.opaco-frente {
-    z-index: 9;
-    background-size: contain !important;
-    opacity: 1;
-    right: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    height: 100% !important;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
 
-.opaco {
-    background-size: contain !important;
-    background-color: black;
-    opacity: 0.3;
-    right: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    height: 100% !important;
-}
-
-p > span {
-    border-bottom: 2px dotted !important;
-}
-
-.referencia{
-    color: white !important;
-    margin-right: 10%;
-    opacity: 1 !important;
-    text-align: end;
-    width: 40%;
-}
-
-.separador {
-    margin-right: 3% !important;
-}
-
-.separador a {
-    font-size: smaller !important;
-    line-height: 0.4rem;
-    font-weight: bold;
-    padding: 2%;
-}
-
-.texto {
-    color: white;
-    font-size: 1.3rem;
-}
-
-.texto p {
-    font-size: 0.8rem;
-}
-
-.texto a{
-    line-height: 2rem;
-}
 
 #ticket {
     color: green !important;
