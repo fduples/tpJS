@@ -40,7 +40,6 @@
             </div>
         </nav>
         <div class="w-50 m-auto">
-            
             <div class="d-flex descuentos my-1">
                 <div class="border border-primary border-2 text-center">
                     <p class="fs-5 fw-medium">Estudiante</p>
@@ -61,56 +60,41 @@
                     <p class="text-start aclara">*presentar documentación</p>
                 </div>
             </div>
-            <!--
-            <div class="container">
-                <div class="row justify-content-around">
-                  <div class="col-md-3 box">
-                    <div class="d-flex justify-content-center align-items-center h-100">
-                      <button class="btn btn-outline-primary squared">
-                        <p>Estudiante</p>
-                        <p>Tienen un descuent</p>
-                        <p>%80</p>
-                        <p class="text-start aclara">*presentar documentación</p>
-                      </button>
-                    </div>
+            <!--Formulario de compra de entradas-->
+            <div><p class="text-center fs-6">VENTA</p></div>
+            <div><p class="text-center fs-1">VALOR DE TICKET $200</p></div>
+            <form>
+                <div class="mb-3 d-flex">
+                    <input type="text" class="form-control me-4" id="nombre" placeholder="Nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
+                </div>
+                <div>
+                  <input type="email" placeholder="Correo" class="form-control mb-3" required>
+                </div>
+                <div class="w-100 mb-5 d-flex">
+                  <div class="w-50 me-4">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" min="1" id="cantidad" value="1" required>
                   </div>
-                  <div class="col-md-3 box">
-                    <div class="d-flex justify-content-center align-items-center h-100">
-                      <button class="btn btn-outline-info squared">
-                        <p>Estudiante</p>
-                        <p>Tienen un descuent</p>
-                        <p>%80</p>
-                        <p class="text-start aclara">*presentar documentación</p>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="col-md-3 box">
-                    <div class="d-flex justify-content-center align-items-center h-100">
-                      <button class="btn btn-outline-warning squared">
-                        <p>Estudiante</p>
-                        <p>Tienen un descuent</p>
-                        <p>%80</p>
-                        <p class="text-start aclara">*presentar documentación</p>
-                      </button>
-                    </div>
+                  <div class="w-50">
+                    <label for="categoria" class="form-label">Cantidad</label>
+                    <select class="form-select" aria-label="Default select example" name="categoria" id="categoria">
+                      <option selected>Seleccione una categoría:</option>
+                      <option value="1">Estudiante</option>
+                      <option value="2">Trainee</option>
+                      <option value="3">Junior</option>
+                    </select>
                   </div>
                 </div>
-              </div>
-              -->
-                <form>
-                    <div class="mb-3 d-flex">
-                        <input type="text" class="form-control me-4" id="nombre" aria-describedby="emailHelp" placeholder="Nombre" name="nombre" required>
-                        <input type="text" class="form-control" id="apellido" aria-describedby="emailHelp" placeholder="Apellido" name="apellido" required>
-                    </div>
-                    <div class="w-100">
-                    <textarea class="form-control w-100 fs-4" rows="5" placeholder="Sobre qué querés hablar?" id="tema" name="tema" required></textarea>
-                    </div>
-                    <div class="">
-                    <p class="text-start aclara" id="">Recuerda incluir un título para tu charla</p>
-                    </div>
-                    <button type="button" class="btn w-100" id="boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Enviar</button>
-                </form>
-            </div>  
+                <div class="alert alert-info mb-5" role="alert" id="monto">
+                  Total a pagar: $ <strong id="monto"></strong>
+                </div>
+                <div class="w-100 mb-3 d-flex">
+                  <button type="button" class="btn w-50 me-4" id="boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Borrar</button>
+                  <button type="button" class="btn w-50" id="boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Resumen</button>
+                </div>
+            </form>
+        </div>  
     </main>
     <footer class="container-fluid p-2">
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">

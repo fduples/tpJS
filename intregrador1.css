@@ -16,6 +16,7 @@
     position: sticky !important;
     top: 0% !important;
     z-index: 10 !important;
+    font-size: 0.9rem;
 }
 
 #barra ul {
@@ -37,14 +38,14 @@ body {
 }
 
 .descuentos {
-    
+
     display: inline-flex;
     width: 100%;
     border-radius: 0%;
     justify-content: center;
 }
 
-.descuentos > div {
+.descuentos>div {
     color: black !important;
     flex: 1;
     width: 175px;
@@ -52,6 +53,7 @@ body {
     padding: 2%;
     box-sizing: border-box;
 }
+
 footer {
     margin-top: 1%;
     background-color: #315664;
@@ -74,12 +76,10 @@ footer .nav-link {
 footer .nav-link:hover {
     color: gray !important;
 }
-    
+
 #logo_codo {
     width: 30%;
 }
-
-
 
 #ticket {
     color: green !important;
@@ -87,4 +87,18 @@ footer .nav-link:hover {
 
 #ticket:hover {
     color: rgb(214, 231, 30) !important;
+}
+
+
+
+@media (max-width: 680px) {
+
+    .descuentos {
+        flex-direction: column;
+    }
+    .descuentos>div {
+        color: black !important;
+        width: 100%;
+        margin: 1% !important;
+    }
 }

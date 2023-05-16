@@ -1,12 +1,28 @@
 //Intento de event listener para el modal de compra
-const orador = document.getElementById('oradorCompra');
-const precioOrador = document.getElementById('precioOrador');
-const cantidad = document.getElementById('cantTickets');
-const total = document.getElementById('totalTickets');
-const precioJobs = 1350;
-const precioGates = 1500;
-const precioAda = 1800;
-var precio = 0;
+const selectCategoria = document.querySelector('#categoria');
+const montoPagar = document.querySelector('#monto');
+const cantidad = document.querySelector('#cantidad');
+
+
+
+cantidad.addEventListener('change', () => {
+
+} )
+
+selectCategoria.addEventListener('change', () => {
+  const categoriaSeleccionada = selectCategoria.value;
+  let descuento = 1;
+  if (categoriaSeleccionada === '1') {
+    descuento = 0.8;
+  } else if (categoriaSeleccionada === '2') {
+    descuento = 0.5;
+  } else if (categoriaSeleccionada === '3') {
+    descuento = 0.15;
+  }
+  const montoFinal = 200 * cantidad.value * descuento;
+  montoPagar.textContent = montoFinal.toFixed(2);
+});
+
 
 orador.addEventListener('change', () => {
     let oradorSeleccionado = orador.value;
