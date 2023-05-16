@@ -2,53 +2,28 @@
 const selectCategoria = document.querySelector('#categoria');
 const montoPagar = document.querySelector('#monto');
 const cantidad = document.querySelector('#cantidad');
+const boton = document.querySelector('#botonB');
 
+montoPagar.textContent = 200;
 
 
 cantidad.addEventListener('change', () => {
-
-} )
-
-selectCategoria.addEventListener('change', () => {
-  const categoriaSeleccionada = selectCategoria.value;
-  let descuento = 1;
-  if (categoriaSeleccionada === '1') {
-    descuento = 0.8;
-  } else if (categoriaSeleccionada === '2') {
-    descuento = 0.5;
-  } else if (categoriaSeleccionada === '3') {
-    descuento = 0.15;
-  }
-  const montoFinal = 200 * cantidad.value * descuento;
+  let descuento = catego();
+  let montoFinal = 200 * cantidad.value * descuento;
   montoPagar.textContent = montoFinal.toFixed(2);
 });
 
-
-orador.addEventListener('change', () => {
-    let oradorSeleccionado = orador.value;
-    if (oradorSeleccionado === "opcion1") {
-      precioOrador.innerHTML = '$'+precioJobs;
-      precio = precioJobs
-    } else if (oradorSeleccionado === "opcion2") {
-      precioOrador.innerHTML = '$'+precioGates;
-      precio = precioGates;
-    } else if (oradorSeleccionado === "opcion3") {
-      precioOrador.innerHTML = '$'+precioAda;
-      precio = precioAda;
-    } else {
-      precioOrador.innerHTML = 'Elija un orador';
-      precio = 0;
-    }
-    //modifico el monto total cuando se cambia la seleccion de orador.
-    let cant = cantidad.value;
-    total.value = cant * precio;
+selectCategoria.addEventListener('change', () => {
+  let descuento = catego();
+  let montoFinal = 200 * cantidad.value * descuento;
+  montoPagar.textContent = montoFinal.toFixed(2);
 });
 
-//Este evento hace que se modifique el monto total cuano cambio la cantidad de entradas 
-cantidad.addEventListener('change', () => {
-  let cant = cantidad.value;
-  total.value = cant * precio;
-})
+boton.addEventListener('click', () => {
+  if (boton.innerHTML === 'Borrar') {
+    limpiar();
+  }
+});
 
 
 // Código de bootstrap para el modal //
@@ -93,20 +68,12 @@ function traerDatos() {
 }
 
 function limpiar() {
-  //obtengo la información del modal y la guardo en respectivas variables
-    var nombre = document.getElementById('nombreModal').innerHTML;
-    var apellido = document.getElementById('apellidoModal').innerHTML;
-    var tema = document.getElementById('temaModal').innerHTML;
-    //Compruebo que no haya ni datos vacíos ni canpos con valor "sin dato".
-    if ((nombre === "Sin Dato" || nombre === "") || (apellido === "Sin Dato" || apellido === "")|| (tema === "Sin Dato" || tema === "")) {
-        alert('Hay información sin completar. Complete el formulario y vuelva a enviarlo.');
-        return false;
-    }
-    //borro los datos del formulario para que se pueda cargar otro
-    document.getElementById('nombre').value = '';
-    document.getElementById('apellido').value = '';
-    document.getElementById('tema').value = '';
-    alert('El formulario ha sido enviado');
+    selectCategoria.value = 0; 
+    document.getElementById('nombre').value= "";
+    document.getElementById('apellido').value= "";
+    document.getElementById('correo').value= "";
+    cantidad.value = 1;
+    montoPagar.textContent = 200;
 }
 
 
@@ -120,3 +87,15 @@ function limpiarCompra() {
   precioOrador.innerHTML = 'Seleccione un orador';
 }
 
+function catego() {
+  const categoriaSeleccionada = selectCategoria.value;
+  let descuento = 1;
+  if (categoriaSeleccionada === '1') {
+    descuento = 0.8;
+  } else if (categoriaSeleccionada === '2') {
+    descuento = 0.5;
+  } else if (categoriaSeleccionada === '3') {
+    descuento = 0.15;
+  }
+  return descuento;
+}

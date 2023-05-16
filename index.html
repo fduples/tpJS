@@ -21,16 +21,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tab justify-content-center w-100">
                         <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#conferencia">La conferencia</a>
+                        <a class="nav-link" aria-current="page" href="#conferencia" id="conf">La conferencia</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#oradores">Los oradores</a>
+                        <a class="nav-link" href="#oradores" id="ors">Los oradores</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#lugar">El lugar y la fecha</a>
+                        <a class="nav-link" href="#lugar" id="lug">El lugar y la fecha</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#quieroSer">Conviértete en orador</a>
+                        <a class="nav-link" href="#quieroSer" id="orad">Conviértete en orador</a>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link" id="ticket" data-bs-toggle="modal" data-bs-target="#compra">Comprar tickets</button>
@@ -69,7 +69,7 @@
                     <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
                 </div>
                 <div>
-                  <input type="email" placeholder="Correo" class="form-control mb-3" required>
+                  <input type="email" placeholder="Correo" class="form-control mb-3" id="correo" required>
                 </div>
                 <div class="w-100 mb-5 d-flex">
                   <div class="w-50 me-4">
@@ -77,21 +77,21 @@
                     <input type="number" class="form-control" min="1" id="cantidad" value="1" required>
                   </div>
                   <div class="w-50">
-                    <label for="categoria" class="form-label">Cantidad</label>
+                    <label for="categoria" class="form-label">Categoria</label>
                     <select class="form-select" aria-label="Default select example" name="categoria" id="categoria">
-                      <option selected>Seleccione una categoría:</option>
+                      <option value="0" selected>Seleccione una categoría:</option>
                       <option value="1">Estudiante</option>
                       <option value="2">Trainee</option>
                       <option value="3">Junior</option>
                     </select>
                   </div>
                 </div>
-                <div class="alert alert-info mb-5" role="alert" id="monto">
+                <div class="alert alert-info mb-5" role="alert" id="alerta">
                   Total a pagar: $ <strong id="monto"></strong>
                 </div>
                 <div class="w-100 mb-3 d-flex">
-                  <button type="button" class="btn w-50 me-4" id="boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Borrar</button>
-                  <button type="button" class="btn w-50" id="boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Resumen</button>
+                  <button type="button" class="btn boton w-50 me-4" id="botonB">Borrar</button>
+                  <button type="button" class="btn w-50  boton" id="botonR" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Resumen</button>
                 </div>
             </form>
         </div>  
@@ -142,8 +142,8 @@
             </div>
             
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Editar</button>
-            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="limpiar()">Enviar</button>
+            <button type="button" class="btn boton" data-bs-dismiss="modal">Editar</button>
+            <button type="button" class="btn boton" data-bs-dismiss="modal" onclick="limpiar()">Enviar</button>
             </div>
         </div>
         </div>
