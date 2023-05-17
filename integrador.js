@@ -1,30 +1,27 @@
-//Intento de event listener para el modal de compra
+//Guardo en constantes los nodos que voy a utilizar
 const selectCategoria = document.querySelector('#categoria');
 const montoPagar = document.querySelector('#monto');
 const cantidad = document.querySelector('#cantidad');
 const boton = document.querySelector('#botonB');
+const correo = document.querySelector('#correo');
 
+//Establezco el valor por defecto del monto a pagar.
 montoPagar.textContent = 200;
 
-
+//Eventlistener de cambio de cantidad de tickets
 cantidad.addEventListener('change', () => {
-  let descuento = catego();
-  let montoFinal = 200 * cantidad.value * descuento;
-  montoPagar.textContent = montoFinal.toFixed(2);
+  montoPagar.textContent = calculo();
 });
 
+//Eventlistener de cambio de categoría
 selectCategoria.addEventListener('change', () => {
-  let descuento = catego();
-  let montoFinal = 200 * cantidad.value * descuento;
-  montoPagar.textContent = montoFinal.toFixed(2);
+    montoPagar.textContent = calculo();
 });
 
-boton.addEventListener('click', () => {
-  if (boton.innerHTML === 'Borrar') {
-    limpiar();
-  }
-});
+//Eventlistener para limpiar lo cargado en el formulario
+boton.addEventListener('click', limpiar);
 
+correo.addEventListener('keyup', validarCorreo);
 
 // Código de bootstrap para el modal //
 const exampleModal = document.getElementById('exampleModal')
@@ -46,27 +43,14 @@ if (exampleModal) {
   })
 }
 
-
-function traerDatos() {
-    // Obtenemos los valores de los inputs por su id
-    var nombre = document.getElementById('nombre').value;
-    var apellido = document.getElementById('apellido').value;
-    var tema = document.getElementById('tema').value;
-
-    //verifico que no haya datos vacíos y con un prompt los completamos.
-    
-    nombre = (nombre === "") ? prompt("Debe Ingresar su nombre:", "Sin Dato") : nombre;
-
-    apellido = (apellido === "") ? prompt("Debe Ingresar su Apellido:", "Sin Dato") : apellido;
-    
-    tema = (tema === "") ? prompt("Debe Ingresar el tema del que quiere hablar:", "Sin Dato"): tema;
-
-  // guardo la información obtenida del form
-    document.getElementById('nombreModal').innerHTML = nombre;
-    document.getElementById('apellidoModal').innerHTML = apellido;
-    document.getElementById('temaModal').innerHTML = tema;
+//Funcion de calculo de monto a pagar
+function calculo() {
+  let descuento = descuentoCategoria();
+  let montoFinal = 200 * cantidad.value * descuento;
+  return montoFinal.toFixed(2);
 }
 
+//Funcion para borrar los datos del formulario
 function limpiar() {
     selectCategoria.value = 0; 
     document.getElementById('nombre').value= "";
@@ -76,18 +60,8 @@ function limpiar() {
     montoPagar.textContent = 200;
 }
 
-
-function limpiarCompra() {
-  orador.value = 'opcion0';
-  document.getElementById('nombreCompra').value = '';
-  document.getElementById('apellidoCompra').value = '';
-  document.getElementById('dia').value = '';
-  cantidad.value = 0;
-  total.value = 0;
-  precioOrador.innerHTML = 'Seleccione un orador';
-}
-
-function catego() {
+//Calcula el descuento a realizar según la categoria seleccionada
+function descuentoCategoria() {
   const categoriaSeleccionada = selectCategoria.value;
   let descuento = 1;
   if (categoriaSeleccionada === '1') {
@@ -98,4 +72,42 @@ function catego() {
     descuento = 0.15;
   }
   return descuento;
+}
+
+//Funcion para cargar los datos al modal desde el formulario
+function traerDatos() { 
+
+  // Obtenemos los valores de los inputs por su id
+  var nombre = document.getElementById('nombre').value;
+  var apellido = document.getElementById('apellido').value;
+
+
+  //verifico que no haya datos vacíos y con un prompt los completamos.
+  
+  nombre = (nombre === "") ? prompt("Debe Ingresar su nombre:", "Sin Dato") : nombre;
+
+  apellido = (apellido === "") ? prompt("Debe Ingresar su Apellido:", "Sin Dato") : apellido;
+  
+  let correoM = (correo.value === "") ? prompt("Debe Ingresar el correo electrónico del que quiere hablar:", "Sin Dato"): correo.value;
+  
+  categoria = (selectCategoria.value === 3) ? "Junior" : (selectCategoria.value === 1) ? "Estudiante" : (selectCategoria.value === 2) ? "Trainee" : "Sin Categoría";
+
+// guardo la información obtenida del form
+  document.getElementById('nombreModal').innerHTML = nombre;
+  document.getElementById('apellidoModal').innerHTML = apellido;
+  document.getElementById('correoModal').innerHTML = correoM;
+  document.getElementById('cantidadModal').innerHTML = cantidad.value;
+  document.getElementById('categoriaModal').innerHTML = categoria;
+  document.getElementById('montoModal').innerHTML = calculo();
+}
+
+//Valida que tenga completos todos los campos el formulario
+function validarCorreo() {
+  // Verificar que el correo electrónico sea válido
+  var correoRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\w{2,3})+$/;
+  if (!correoRegExp.test(correo.value)) {
+    return false;
+  }
+  
+  return true; // Todos los campos están válidos
 }

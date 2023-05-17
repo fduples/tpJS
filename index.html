@@ -137,13 +137,25 @@
                 <label for="apellidoModal">Apellido: </label>
                 <p class="fw-bold text-center form-control w-50" id="apellidoModal"></p>
                 <div>
-                    <textarea rows="5" id="temaModal" class="text-center form-control m-1"></textarea>
+                    <label for="apellidoModal">Correo: </label>
+                    <p class="fw-bold text-center form-control w-50" id="correoModal"></p>
+                </div>
+                <div class="mb-1">
+                    <div>
+                        <label for="apellidoModal">Cantidad de Tickets: </label>
+                        <p class="fw-bold text-center form-control w-50" id="cantidadModal"></p>
+                    </div>
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <p class="fw-bold text-center form-control w-50" id="categoriaModal"></p>
+                </div>
+                <div class="alert alert-info mb-5" role="alert" id="">
+                    Total a pagar: $ <strong id="montoModal"></strong>
                 </div>
             </div>
             
             <div class="modal-footer">
-            <button type="button" class="btn boton" data-bs-dismiss="modal">Editar</button>
-            <button type="button" class="btn boton" data-bs-dismiss="modal" onclick="limpiar()">Enviar</button>
+            <button type="button" class="btn boton" data-bs-dismiss="modal">Volver</button>
+            <button type="button" class="btn boton" data-bs-dismiss="modal" onclick="limpiar()">Cancelar</button>
             </div>
         </div>
         </div>
