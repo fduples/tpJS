@@ -164,54 +164,6 @@
     </div>
     <!-- FIN MODAL -->
 
-    <!-- MODAL COMPRE TICKETS-->
-    <div class="modal fade p-1" id="compra" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <span class="modal-title fs-5" id="staticBackdropLabel">Comprar Tickets</span>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limpiarCompra()"></button>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="m-1">
-                    <h5 class="text-center">Ingrese sus datos</h5>
-                    <label for="nombreModal">Nombre: </label>
-                    <input type="text" class="fw-bold text-center form-control w-100" id="nombreCompra">
-                    <label for="apellidoModal">Apellido: </label>
-                    <input type="text" class="fw-bold text-center form-control w-100" id="apellidoCompra">
-                </div>
-                <hr>
-                <label class="w-100" for="dia">Seleccione el día que desea: </label>
-                <div class="m-1 form-group row">
-                    <div class="col">
-                        <input type="date" name="dia" id="dia" class="fw-bold text-center form-control w-auto m-1" min="2023-05-01" max="2023-05-19">
-                    </div>
-                    <select class="col form-select w-auto h-25" name="oradorCompra" id="oradorCompra">
-                        <option value="opcion0" selected>Selecciones al Orador</option>
-                        <option value="opcion1">Steve Jobs</option>
-                        <option value="opcion2">Bill Gates</option>
-                        <option value="opcion3">Ada Lovelace</option>
-                    </select>
-                </div>
-                <hr>
-                <div class="m-1">
-                    <p class="fw-bold text-center form-control w-50" id="precioU">Precio por ticket: <i id="precioOrador"></i></p>
-                    <label for="cantTickets">Cuantos Tickets desea:  </label>
-                    <input type="number" class="fw-bold text-center form-control w-50" id="cantTickets" min="1">
-                    <label for="apellidoModal">Precio Total: </label>
-                    <input class="fw-bold text-center form-control w-50" id="totalTickets">
-                </div>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limpiarCompra()">Cancelar</button>
-            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="limpiarCompra()">Comprar</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- FIN MODAL COMPRE TICKETS-->
-
 <script src="integrador.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
