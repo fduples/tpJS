@@ -69,7 +69,9 @@
                     <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
                 </div>
                 <div>
-                  <input type="email" placeholder="Correo" class="form-control mb-3" id="correo" required>
+                  <input type="email" placeholder="Correo" class="form-control mb-3" id="correo" onkeyup="validarCorreo()" required>
+                  <div class="" role="alert" id="mensaje">
+                  </div>
                 </div>
                 <div class="w-100 mb-5 d-flex">
                   <div class="w-50 me-4">
@@ -91,7 +93,7 @@
                 </div>
                 <div class="w-100 mb-3 d-flex">
                   <button type="button" class="btn boton w-50 me-4" id="botonB">Borrar</button>
-                  <button type="button" class="btn w-50  boton" id="botonR" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()">Resumen</button>
+                  <button type="button" class="btn w-50  boton" id="botonR" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="traerDatos()" disabled>Resumen</button>
                 </div>
             </form>
         </div>  
@@ -155,7 +157,7 @@
             
             <div class="modal-footer">
             <button type="button" class="btn boton" data-bs-dismiss="modal">Volver</button>
-            <button type="button" class="btn boton" data-bs-dismiss="modal" onclick="limpiar()">Cancelar</button>
+            <button type="button" class="btn boton" data-bs-dismiss="modal" onclick="limpiar()">Limpiar Datos</button>
             </div>
         </div>
         </div>

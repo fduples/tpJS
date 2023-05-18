@@ -4,6 +4,13 @@ const montoPagar = document.querySelector('#monto');
 const cantidad = document.querySelector('#cantidad');
 const boton = document.querySelector('#botonB');
 const correo = document.querySelector('#correo');
+const nombre = document.querySelector('#nombre');
+const apellido = document.querySelector('#apellido');
+const mensaje = document.querySelector('#mensaje');
+
+
+// Seleccionar el botón de Resumen
+const botonResumen = document.getElementById('botonR');
 
 //Establezco el valor por defecto del monto a pagar.
 montoPagar.textContent = 200;
@@ -21,7 +28,10 @@ selectCategoria.addEventListener('change', () => {
 //Eventlistener para limpiar lo cargado en el formulario
 boton.addEventListener('click', limpiar);
 
-correo.addEventListener('keyup', validarCorreo);
+correo.addEventListener('keyup', function () {
+  validarCorreo();
+  verificarCamposCompletos();
+});
 
 // Código de bootstrap para el modal //
 const exampleModal = document.getElementById('exampleModal')
@@ -53,11 +63,14 @@ function calculo() {
 //Funcion para borrar los datos del formulario
 function limpiar() {
     selectCategoria.value = 0; 
-    document.getElementById('nombre').value= "";
-    document.getElementById('apellido').value= "";
-    document.getElementById('correo').value= "";
+    nombre.value= "";
+    apellido.value= "";
+    correo.value= "";
     cantidad.value = 1;
     montoPagar.textContent = 200;
+    mensaje.className = "";
+    mensaje.textContent = "";
+    botonResumen.disabled = true;
 }
 
 //Calcula el descuento a realizar según la categoria seleccionada
@@ -90,7 +103,7 @@ function traerDatos() {
   
   let correoM = (correo.value === "") ? prompt("Debe Ingresar el correo electrónico del que quiere hablar:", "Sin Dato"): correo.value;
   
-  categoria = (selectCategoria.value === 3) ? "Junior" : (selectCategoria.value === 1) ? "Estudiante" : (selectCategoria.value === 2) ? "Trainee" : "Sin Categoría";
+  categoria = (selectCategoria.value === "3") ? "Junior" : (selectCategoria.value === "1") ? "Estudiante" : (selectCategoria.value === "2") ? "Trainee" : "Sin Categoría";
 
 // guardo la información obtenida del form
   document.getElementById('nombreModal').innerHTML = nombre;
@@ -103,11 +116,52 @@ function traerDatos() {
 
 //Valida que tenga completos todos los campos el formulario
 function validarCorreo() {
-  // Verificar que el correo electrónico sea válido
   var correoRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\w{2,3})+$/;
+
   if (!correoRegExp.test(correo.value)) {
+    mensaje.className = "alert alert-danger"
+    mensaje.innerHTML = "Correo inválido";
     return false;
   }
-  
-  return true; // Todos los campos están válidos
+  mensaje.className = "alert alert-success"
+  mensaje.innerHTML = "Correo válido";
+  return true;
 }
+
+
+
+// Función para verificar si todos los campos obligatorios están completos
+function verificarCamposCompletos() {
+  if (nombre.value !== '' && apellido.value !== '' && correo.value !== '') {
+    botonResumen.disabled = false;
+  } else {
+    botonResumen.disabled = true;
+  }
+}
+
+// Deshabilitar el botón de Resumen si no están completos todos los campos obligatorios
+/*
+nombreInput.addEventListener('keyup', function () {
+  if (!verificarCamposCompletos()) {
+    botonResumen.disabled = true;
+  } else {
+    botonResumen.disabled = false;
+  }
+});
+
+apellidoInput.addEventListener('keyup', function () {
+  if (!verificarCamposCompletos()) {
+    botonResumen.disabled = true;
+  } else {
+    botonResumen.disabled = false;
+  }
+});
+
+correoInput.addEventListener('keyup', function () {
+  if (!verificarCamposCompletos()) {
+    botonResumen.disabled = true;
+  } else {
+    botonResumen.disabled = false;
+  }
+});*/
+
